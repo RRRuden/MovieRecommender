@@ -1,0 +1,52 @@
+
+<section class="h-screen">
+    <div class="px-6 h-full text-gray-800">
+      <div
+        class="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6"
+      >
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    NAME
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    ROLE
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    EDIT
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    DELETE
+                </th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr *ngFor="let user of userService.users">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{user.id}}
+                </th>
+                <td class="px-6 py-4">
+                    {{user.login}}
+                </td>
+                <td class="px-6 py-4">
+                    <select [(ngModel)]="user.role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option>User</option>
+                        <option>Admin</option>
+                    </select>
+                </td>
+                <td class="px-6 py-4">
+                    <button  class="font-medium text-blue-600 dark:text-blue-500 hover:underline" (click)="update(user)">Edit</button>
+                </td>
+                <td class="px-6 py-4">
+                    <button  class="font-medium text-blue-600 dark:text-blue-500 hover:underline" (click)="delete(user.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+    </div>
+</section>
